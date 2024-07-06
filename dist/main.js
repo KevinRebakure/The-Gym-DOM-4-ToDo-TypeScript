@@ -7,6 +7,7 @@ const DONE = document.getElementById("done");
 const tasks = [];
 let id = 0;
 form.addEventListener("submit", function (e) {
+    console.log('FORM SUBMIT CALLBACK FUNCTION');
     e.preventDefault();
     const TASK = {
         id: id,
@@ -14,21 +15,21 @@ form.addEventListener("submit", function (e) {
         completed: false,
     };
     tasks.push(TASK);
-    console.log(tasks);
-    createTask(id);
+    console.log('Created task object and pushed it to tasks:', tasks);
+    createTask(TASK);
     input.value = "";
     id++;
-    console.log(id);
+    console.log('Incremented id:', id);
 });
-function createTask(getId) {
+function createTask(getTASK) {
+    console.log('CREATE TASK FUNCTION');
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
     const doneButton = document.createElement("button");
     li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
-    li.id = `${getId}`;
-    console.log(li);
-    span.innerText = tasks[getId].task;
+    li.id = `${getTASK.id}`;
+    span.innerText = getTASK.task;
     span.id = "task";
     span.className = "mr-auto";
     deleteButton.innerText = "Delete";
@@ -40,8 +41,10 @@ function createTask(getId) {
     doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
     li.append(span, deleteButton, doneButton);
     ul.prepend(li);
+    console.log('Create task function li element:', li);
 }
 function deleteTask(e) {
+    console.log('DELETE TASK FUNCTION');
     console.log("Parent element (Li) id:", e.target.parentElement.id);
     ul.removeChild(e.target.parentElement);
     console.log(typeof e.target.parentElement.id);

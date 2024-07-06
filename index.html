@@ -12,18 +12,38 @@
     <title>ToDo</title>
   </head>
   <body>
-    <div id="page" class="space-y-5 w-1/2 mx-auto">
+    <div id="page" class="mx-auto w-1/2 space-y-5">
+      <h1 class="text-3xl text-green-500">ToDo</h1>
       <form class="flex items-center" id="form" action="">
-        <input class="bg-gray-100 border-none outline-none px-3 py-1" type="text" name="" id="input" />
-        <input class="bg-green-500 text-white px-3 py-1" type="submit" value="Create task" />
+        <input
+          class="border-none bg-gray-100 px-3 py-1 outline-none"
+          type="text"
+          name=""
+          id="input"
+        />
+        <input
+          class="bg-green-500 px-3 py-1 text-white"
+          type="submit"
+          value="Create task"
+        />
       </form>
 
       <ul class="space-y-3" id="list">
-        <li id="1" class="bg-yellow-100 flex justify-end items-center py-1 px-3">
+        <!-- <li
+          id="1"
+          class="flex items-center justify-end bg-yellow-100 px-3 py-1"
+        >
           <span id="task" class="mr-auto">Learn to play guitar</span>
-          <button class="text-white bg-red-500 border px-3 py-1" id="delete">Delete</button>
-          <button class="text-white bg-blue-500 border px-3 py-1" id="completed">Done</button>
-        </li>
+          <button class="border bg-red-500 px-3 py-1 text-white" id="delete">
+            Delete
+          </button>
+          <button
+            class="border bg-blue-500 px-3 py-1 text-white"
+            id="completed"
+          >
+            Done
+          </button>
+        </li> -->
       </ul>
     </div>
     <script src="dist/main.js"></script>

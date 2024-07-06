@@ -7,45 +7,51 @@ const DONE = document.getElementById("done");
 const tasks = [];
 let id = 0;
 form.addEventListener("submit", function (e) {
-    console.log("FORM SUBMIT CALLBACK FUNCTION");
+    console.log("FORM CALLBACK FUNCTION");
+    console.log("-".repeat(20));
     e.preventDefault();
+    createTask();
+    populateUI();
+    erase();
+});
+function erase() {
+    console.log("ERASE FUNCTION");
+    input.value = "";
+    id++;
+    console.log("Incremented id:", id);
+}
+function createTask() {
+    console.log("CREATE TASK FUNCTION");
     const TASK = {
         id: id,
         task: input.value,
         completed: false,
     };
-    tasks.push(TASK);
-    console.log("Created task object and pushed it to tasks:", tasks);
-    createTask(TASK);
-    input.value = "";
-    id++;
-    console.log("Incremented id:", id);
-});
-function createTask(getTASK) {
-    console.log("CREATE TASK FUNCTION");
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    const deleteButton = document.createElement("button");
-    li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
-    li.id = `${getTASK.id}`;
-    span.innerText = getTASK.task;
-    span.id = "task";
-    span.className = "mr-auto";
-    deleteButton.innerText = "Delete";
-    deleteButton.id = "delete";
-    deleteButton.className = "border bg-red-500 px-3 py-1 text-white";
-    deleteButton.addEventListener("click", deleteTask);
-    li.append(span, deleteButton);
-    ul.prepend(li);
-    console.log("Create task function li element:", li);
+    tasks.unshift(TASK);
+    console.log("TASKS:", tasks);
 }
-function deleteTask(e) {
-    console.log("DELETE TASK FUNCTION");
-    console.log("Parent element (Li) id:", e.target.parentElement.id);
-    ul.removeChild(e.target.parentElement);
-    console.log(typeof e.target.parentElement.id);
-    const removeIndex = tasks.findIndex((task) => task.id === parseInt(e.target.parentElement.id));
-    tasks.splice(removeIndex, 1);
-    console.log("Remove index:", removeIndex);
-    console.log("All tasks", tasks);
+function populateUI() {
+    const elements = tasks.map((task) => {
+        console.log("CREATE ELEMENTS FUNCTION");
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        const doneButton = document.createElement("button");
+        li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
+        li.id = `${task.id}`;
+        span.innerText = task.task;
+        span.id = "task";
+        span.className = "mr-auto";
+        doneButton.innerText = "Done";
+        doneButton.id = "done";
+        doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
+        doneButton.addEventListener("click", checkTask);
+        li.append(span, doneButton);
+        console.log(li);
+        return li.outerHTML;
+    });
+    ul.innerHTML = elements.join("");
+    console.log(elements);
+}
+function checkTask() {
+    console.log("😂😂😂");
 }

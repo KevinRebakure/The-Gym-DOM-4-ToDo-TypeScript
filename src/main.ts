@@ -6,6 +6,7 @@ const DELETE = document.getElementById("delete") as HTMLButtonElement;
 const DONE = document.getElementById("done") as HTMLButtonElement;
 
 const tasks: Task[] = [];
+let id = 0;
 
 interface Task {
   id: number;
@@ -13,10 +14,32 @@ interface Task {
   completed: boolean;
 }
 
-let id = 0;
 form.addEventListener("submit", function (e) {
-  console.log("FORM SUBMIT CALLBACK FUNCTION");
+  console.log("FORM CALLBACK FUNCTION");
+  console.log("-".repeat(20));
+
   e.preventDefault();
+
+  createTask();
+
+  populateUI();
+
+  erase();
+});
+
+// Erase, Generate id
+
+function erase() {
+  console.log("ERASE FUNCTION");
+  input.value = "";
+  id++;
+  console.log("Incremented id:", id);
+}
+
+// Create task
+
+function createTask() {
+  console.log("CREATE TASK FUNCTION");
 
   const TASK: Task = {
     id: id,
@@ -24,73 +47,68 @@ form.addEventListener("submit", function (e) {
     completed: false,
   };
 
-  tasks.push(TASK);
-  console.log("Created task object and pushed it to tasks:", tasks);
+  tasks.unshift(TASK);
 
-  createTask(TASK);
-  input.value = "";
-  id++;
-  console.log("Incremented id:", id);
-});
+  console.log("TASKS:", tasks);
+}
 
-// Create task
+// Populate UI
 
-function createTask(getTASK: Task) {
-  console.log("CREATE TASK FUNCTION");
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  const deleteButton = document.createElement("button");
-  const doneButton = document.createElement("button");
+function populateUI() {
+  const elements = tasks.map((task) => {
+    console.log("CREATE ELEMENTS FUNCTION");
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    // const deleteButton = document.createElement("button");
+    const doneButton = document.createElement("button");
 
-  li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
-  li.id = `${getTASK.id}`;
+    li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
+    li.id = `${task.id}`;
 
-  span.innerText = getTASK.task;
-  span.id = "task";
-  span.className = "mr-auto";
+    span.innerText = task.task;
+    span.id = "task";
+    span.className = "mr-auto";
 
-  deleteButton.innerText = "Delete";
-  deleteButton.id = "delete";
-  deleteButton.className = "border bg-red-500 px-3 py-1 text-white";
-  deleteButton.addEventListener("click", deleteTask);
+    // deleteButton.innerText = "Delete";
+    // deleteButton.id = "delete";
+    // deleteButton.className = "border bg-red-500 px-3 py-1 text-white";
+    // deleteButton.addEventListener("click", deleteTask);
 
-  doneButton.innerText = "Done";
-  doneButton.id = "done";
-  doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
-  doneButton.addEventListener('click', checkTask)
+    doneButton.innerText = "Done";
+    doneButton.id = "done";
+    doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
+    doneButton.addEventListener("click", checkTask);
 
-  li.append(span, deleteButton);
-  // li.append(span, deleteButton, doneButton);
-  ul.prepend(li);
-  console.log("Create task function li element:", li);
+    // li.append(span, deleteButton, doneButton);
+    li.append(span, doneButton);
+    console.log(li);
+    return li.outerHTML;
+  });
+  ul.innerHTML = elements.join("");
+  console.log(elements);
 }
 
 // Delete task
 
-function deleteTask(e: any) {
-  console.log("DELETE TASK FUNCTION");
-  console.log("Parent element (Li) id:", e.target.parentElement.id);
-  ul.removeChild(e.target.parentElement);
-  console.log(typeof e.target.parentElement.id);
-  const removeIndex = tasks.findIndex(
-    (task: Task) => task.id === parseInt(e.target.parentElement.id),
-  );
-  tasks.splice(removeIndex, 1);
-  console.log("Remove index:", removeIndex);
-  console.log("All tasks", tasks);
-}
+// function deleteTask(e: any) {
+//   console.log("DELETE TASK FUNCTION");
+//   // console.log("Parent element (Li) id:", e.target.parentElement.id);
+//   // ul.removeChild(e.target.parentElement);
+//   // console.log(typeof e.target.parentElement.id);
+//   console.log(e.target.parentElement.id)
+//   console.log(e.target.parentElement.id)
+//   console.log(e.target.parentElement.id)
+//   console.log(e.target.parentElement.id)
+//   console.log(e.target.parentElement.id)
+//   const removeIndex = tasks.findIndex(
+//     (task: Task) => task.id === parseInt(e.target.parentElement.id),
+//   );
+//   tasks.splice(removeIndex, 1);
+//   // console.log("Remove index:", removeIndex);
+//   // console.log("All tasks", tasks);
+//   populateUI()
+// }
 
-// Check tasks
-
-function checkTask(e: any) {
-  console.log("CHECK TASK FUNCTION");
-  console.log("Parent element (Li) id:", e.target.parentElement.id);
-  ul.removeChild(e.target.parentElement);
-  console.log(typeof e.target.parentElement.id);
-  const removeIndex = tasks.findIndex(
-    (task: Task) => task.id === parseInt(e.target.parentElement.id),
-  );
-  tasks.splice(removeIndex, 1);
-  console.log("Remove index:", removeIndex);
-  console.log("All tasks", tasks);
+function checkTask() {
+  console.log("😂😂😂");
 }

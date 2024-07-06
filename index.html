@@ -1,13 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/711/711191.png" type="image/x-icon">
-    <link rel="stylesheet" href="src/output.css">
-    <title>RebaGallery</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/128/4315/4315445.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div id="page" class="space-y-5 w-1/2 mx-auto">
+      <form class="flex items-center" id="form" action="">
+        <input class="bg-gray-100 border-none outline-none px-3 py-1" type="text" name="" id="input" />
+        <input class="bg-green-500 text-white px-3 py-1" type="submit" value="Create task" />
+      </form>
+
+      <ul class="space-y-3" id="list">
+        <li id="1" class="bg-yellow-100 flex justify-end items-center py-1 px-3">
+          <span id="task" class="mr-auto">Learn to play guitar</span>
+          <button class="text-white bg-red-500 border px-3 py-1" id="delete">Delete</button>
+          <button class="text-white bg-blue-500 border px-3 py-1" id="completed">Done</button>
+        </li>
+      </ul>
+    </div>
     <script src="dist/main.js"></script>
-</body>
+  </body>
 </html>

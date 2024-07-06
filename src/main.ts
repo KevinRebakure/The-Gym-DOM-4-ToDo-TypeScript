@@ -15,6 +15,7 @@ interface Task {
 
 let id = 0;
 form.addEventListener("submit", function (e) {
+    console.log('FORM SUBMIT CALLBACK FUNCTION')
   e.preventDefault();
 
   const TASK: Task = {
@@ -22,44 +23,47 @@ form.addEventListener("submit", function (e) {
     task: input.value,
     completed: false,
   };
-  tasks.push(TASK);
-  console.log(tasks);
 
-  createTask(id);
+  tasks.push(TASK);
+  console.log('Created task object and pushed it to tasks:', tasks);
+
+  createTask(TASK);
   input.value = "";
   id++;
-  console.log(id);
+  console.log('Incremented id:', id);
 });
 
-function createTask(getId: number) {
+function createTask(getTASK:Task) {
+    console.log('CREATE TASK FUNCTION')
   const li = document.createElement("li");
   const span = document.createElement("span");
   const deleteButton = document.createElement("button");
   const doneButton = document.createElement("button");
 
   li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
-  li.id = `${getId}`;
+  li.id = `${getTASK.id}`;
 
-  console.log(li);
-
-  span.innerText = tasks[getId].task;
+  
+  span.innerText = getTASK.task;
   span.id = "task";
   span.className = "mr-auto";
-
+  
   deleteButton.innerText = "Delete";
   deleteButton.id = "delete";
   deleteButton.className = "border bg-red-500 px-3 py-1 text-white";
   deleteButton.addEventListener("click", deleteTask);
-
+  
   doneButton.innerText = "Done";
   doneButton.id = "done";
   doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
-
+  
   li.append(span, deleteButton, doneButton);
   ul.prepend(li);
+  console.log('Create task function li element:', li);
 }
 
 function deleteTask(e: any) {
+    console.log('DELETE TASK FUNCTION')
   console.log("Parent element (Li) id:", e.target.parentElement.id);
   ul.removeChild(e.target.parentElement);
   console.log(typeof e.target.parentElement.id);

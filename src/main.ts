@@ -82,10 +82,16 @@ function populateUI() {
     // li.append(span, deleteButton, doneButton);
     li.append(span, doneButton);
     console.log(li);
-    return li.outerHTML;
+    // return li.outerHTML;
+    return li;
   });
-  ul.innerHTML = elements.join("");
-  console.log(elements);
+  elements.reverse();
+  // ul.innerHTML = elements.join("");
+  // console.log(elements);
+  ul.innerHTML = "";
+  elements.forEach((element) => {
+    ul.appendChild(element);
+  });
 }
 
 // Delete task

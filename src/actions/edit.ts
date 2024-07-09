@@ -10,7 +10,6 @@ export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, 
         input.value = _tasks[index].task
         _editButton.innerText = 'Done'
         clicked = true
-        console.log(_tasks[index])
     } else {
         if (input.value !== "" && clicked) {
             _tasks[index].onedit = false
@@ -19,7 +18,6 @@ export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, 
             _editButton.innerText = 'Edit'
             input.value = ""
             populateUI(_ul, _tasks)
-            console.log(_tasks[index])
         }
     }
 }

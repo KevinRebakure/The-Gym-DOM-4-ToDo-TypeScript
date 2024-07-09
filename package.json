@@ -1,21 +1,21 @@
 {
-  "name": "the-gym-dom-3-rebagallery-fetchapi-typescript",
-  "version": "1.0.0",
-  "description": "My first TypeScript project",
+  "name": "vite-typescript-tailwindcss-setup",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "ts": "npx tsc --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "typescript": "^5.5.3",
+    "vite": "^5.3.1"
+  }
 }

@@ -10,7 +10,7 @@ let count = 0
 
 form.addEventListener('submit', function(e:SubmitEvent){
     e.preventDefault()
-    createTask(tasks, count, input.value, false)
+    createTask(tasks, count, input.value, false, false)
     populateUI(ul, tasks)
     cleanUp()
 })

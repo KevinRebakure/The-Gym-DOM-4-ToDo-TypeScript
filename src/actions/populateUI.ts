@@ -17,7 +17,11 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
 
         const editButton = document.createElement("button");
         editButton.className = "border bg-green-500 px-3 py-1 text-white";
-        editButton.innerText = "Edit"
+        if (!task.onedit) {
+            editButton.innerText = "Edit"
+        } else {
+            editButton.innerText = "Done"
+        }
         editButton.addEventListener('click', function(){
             edit(ul, _tasks, task.id, editButton)
             // populateUI(_ul, _tasks)

@@ -11,7 +11,7 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
 
         const span = document.createElement("span");
-        span.className = "mr-auto";
+        // span.className = "mr-auto";
         span.innerText = task.task;
 
         const editButton = document.createElement("button");
@@ -24,9 +24,16 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
 
         const checkButton = document.createElement("button");
         checkButton.className = "border bg-blue-500 px-3 py-1 text-white";
-        checkButton.innerText = "Check"
+        if (!task.completed) {
+            checkButton.innerText = "Check"
+            span.className = 'mr-auto'
+        } else {
+            checkButton.innerText = "Completed"
+            span.className = 'mr-auto line-through'
+        }
         checkButton.addEventListener('click', function() {
-            complete(task.id, checkButton)
+            complete(_tasks, task.id)
+            populateUI(_ul, _tasks)
         })
 
         const deleteButton = document.createElement("button");

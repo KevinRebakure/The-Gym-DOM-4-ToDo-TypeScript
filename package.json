@@ -2,6 +2,7 @@
   "name": "the-gym-dom-3-rebagallery-fetchapi-typescript",
   "version": "1.0.0",
   "description": "My first TypeScript project",
+  "type": "module",
   "main": "index.js",
   "devDependencies": {
     "prettier": "^3.3.2",

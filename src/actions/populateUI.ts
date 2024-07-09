@@ -12,7 +12,6 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
 
         const span = document.createElement("span");
-        // span.className = "mr-auto";
         span.innerText = task.task;
 
         const editButton = document.createElement("button");
@@ -24,7 +23,6 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         }
         editButton.addEventListener('click', function(){
             edit(ul, _tasks, task.id, editButton)
-            // populateUI(_ul, _tasks)
         })
 
         const completeButton = document.createElement("button");
@@ -49,7 +47,6 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
              populateUI(_ul, _tasks)
         });
 
-        // li.append(span, editButton, deleteButton);
         li.append(span, editButton, completeButton, deleteButton);
         _ul.append(li)
     })

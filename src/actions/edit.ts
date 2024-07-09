@@ -1,7 +1,6 @@
 import { Task } from "../interfaces";
 import { input } from "../main";
 import populateUI from "./populateUI";
-// import populateUI from "./populateUI";
 
 export let clicked = false
 export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, _editButton:HTMLButtonElement) {

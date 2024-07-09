@@ -1,21 +1,15 @@
 import { Task } from "../interfaces";
 
 let clicked = false;
-export default function complete(
-  _tasks: Task[],
-  _id: number,
-  _checkButton: HTMLButtonElement,
-) {
+export default function complete(_tasks: Task[], _id: number) {
+  const index = _tasks.findIndex((task) => task.id == _id);
   if (!clicked) {
-    // _checkButton.innerText = "Completed";
-    // _checkButton.className = _checkButton.className + " line-through";
+    _tasks[index].completed = true;
     clicked = true;
-    // _checkButton.parentElement!.firstElementChild!.className =
-    //   "mr-auto line-through";
+    _tasks.push(_tasks[index])
+    _tasks.splice(index, 1)
   } else {
-    // _checkButton.innerText = "Check";
-    // _checkButton.className = "border bg-blue-500 px-3 py-1 text-white";
+    _tasks[index].completed = false;
     clicked = false;
-    // _checkButton.parentElement!.firstElementChild!.className = "mr-auto";
   }
 }

@@ -1,4 +1,5 @@
 import { Task } from "../interfaces";
+import edit from "./edit";
 import remove from "./remove";
 
 export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
@@ -12,9 +13,17 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         span.className = "mr-auto";
         span.innerText = task.task;
 
-        const doneButton = document.createElement("button");
-        doneButton.className = "border bg-blue-500 px-3 py-1 text-white";
-        doneButton.innerText = "Done"
+        const editButton = document.createElement("button");
+        editButton.className = "border bg-green-500 px-3 py-1 text-white";
+        editButton.innerText = "Edit"
+        editButton.addEventListener('click', function(){
+            edit(_tasks, task.id, editButton)
+            populateUI(_ul, _tasks)
+        })
+
+        // const checkButton = document.createElement("button");
+        // checkButton.className = "border bg-blue-500 px-3 py-1 text-white";
+        // checkButton.innerText = "Check"
 
         const deleteButton = document.createElement("button");
         deleteButton.className = "border bg-red-500 px-3 py-1 text-white";
@@ -24,7 +33,8 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
              populateUI(_ul, _tasks)
         });
 
-        li.append(span, deleteButton, doneButton);
+        li.append(span, editButton, deleteButton);
+        // li.append(span, editButton, checkButton, deleteButton);
         _ul.append(li)
     })
 }

@@ -1,5 +1,5 @@
 import { Task } from "../interfaces";
-import { input, ul } from "../main";
+import { input } from "../main";
 // import populateUI from "./populateUI";
 
 let clicked = false

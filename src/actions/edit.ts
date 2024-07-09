@@ -8,8 +8,10 @@ export default function edit(_tasks: Task[], _id: number, _editButton:HTMLButton
         input.value = _tasks[index].task
         clicked = true
     } else {
-        _tasks[index].task = input.value 
-        clicked = false
-        input.value = ''
+        if (input.value !== "" && clicked) {
+            _tasks[index].task = input.value 
+            clicked = false
+            input.value = ""
+        }
     }
 }

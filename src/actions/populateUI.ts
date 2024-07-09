@@ -1,4 +1,5 @@
 import { Task } from "../interfaces";
+import { ul } from "../main";
 import complete from "./complete";
 import edit from "./edit";
 import remove from "./remove";
@@ -18,7 +19,7 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     editButton.className = "border bg-green-500 px-3 py-1 text-white";
     editButton.innerText = "Edit";
     editButton.addEventListener("click", function () {
-      edit(_tasks, task.id, editButton);
+      edit(ul,_tasks, task.id, editButton);
       // populateUI(_ul, _tasks)
     });
 
@@ -33,7 +34,7 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     }
 
     checkButton.addEventListener("click", function () {
-      complete(_tasks, task.id, checkButton);
+      complete(_tasks, task.id);
       populateUI(_ul, _tasks);
     });
 

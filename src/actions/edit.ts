@@ -16,7 +16,6 @@ export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, 
             clicked = false
             _editButton.innerText = 'Edit'
             input.value = ""
-            console.log(_tasks[index])
             populateUI(_ul, _tasks)
         }
     }

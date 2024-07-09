@@ -23,16 +23,16 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
             // populateUI(_ul, _tasks)
         })
 
-        const checkButton = document.createElement("button");
-        checkButton.className = "border bg-blue-500 px-3 py-1 text-white";
+        const completeButton = document.createElement("button");
+        completeButton.className = "border bg-blue-500 px-3 py-1 text-white";
         if (!task.completed) {
-            checkButton.innerText = "Check"
+            completeButton.innerText = "Check"
             span.className = 'mr-auto'
         } else {
-            checkButton.innerText = "Completed"
+            completeButton.innerText = "Completed"
             span.className = 'mr-auto line-through'
         }
-        checkButton.addEventListener('click', function() {
+        completeButton.addEventListener('click', function() {
             complete(_tasks, task.id)
             populateUI(_ul, _tasks)
         })
@@ -46,7 +46,7 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         });
 
         // li.append(span, editButton, deleteButton);
-        li.append(span, editButton, checkButton, deleteButton);
+        li.append(span, editButton, completeButton, deleteButton);
         _ul.append(li)
     })
 }

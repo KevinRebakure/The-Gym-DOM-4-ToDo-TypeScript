@@ -1,4 +1,5 @@
 import { Task } from "../interfaces";
+import { ul } from "../main";
 import complete from "./complete";
 import edit from "./edit";
 import remove from "./remove";
@@ -11,22 +12,29 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         li.className = "flex items-center justify-end bg-yellow-100 px-3 py-1";
 
         const span = document.createElement("span");
-        span.className = "mr-auto";
+        // span.className = "mr-auto";
         span.innerText = task.task;
 
         const editButton = document.createElement("button");
         editButton.className = "border bg-green-500 px-3 py-1 text-white";
         editButton.innerText = "Edit"
         editButton.addEventListener('click', function(){
-            edit(_tasks, task.id, editButton)
+            edit(ul, _tasks, task.id, editButton)
             // populateUI(_ul, _tasks)
         })
 
-        const checkButton = document.createElement("button");
-        checkButton.className = "border bg-blue-500 px-3 py-1 text-white";
-        checkButton.innerText = "Check"
-        checkButton.addEventListener('click', function() {
-            complete(task.id, checkButton)
+        const completeButton = document.createElement("button");
+        completeButton.className = "border bg-blue-500 px-3 py-1 text-white";
+        if (!task.completed) {
+            completeButton.innerText = "Check"
+            span.className = 'mr-auto'
+        } else {
+            completeButton.innerText = "Completed"
+            span.className = 'mr-auto line-through'
+        }
+        completeButton.addEventListener('click', function() {
+            complete(_tasks, task.id)
+            populateUI(_ul, _tasks)
         })
 
         const deleteButton = document.createElement("button");
@@ -38,7 +46,7 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         });
 
         // li.append(span, editButton, deleteButton);
-        li.append(span, editButton, checkButton, deleteButton);
+        li.append(span, editButton, completeButton, deleteButton);
         _ul.append(li)
     })
 }

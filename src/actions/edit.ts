@@ -1,9 +1,10 @@
 import { Task } from "../interfaces";
-import { input, ul } from "../main";
+import { input } from "../main";
+import populateUI from "./populateUI";
 // import populateUI from "./populateUI";
 
-let clicked = false
-export default function edit(_tasks: Task[], _id: number, _editButton:HTMLButtonElement) {
+export let clicked = false
+export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, _editButton:HTMLButtonElement) {
     const index = _tasks.findIndex((task) => task.id == _id);
     if (!clicked) {
         input.value = _tasks[index].task
@@ -15,6 +16,7 @@ export default function edit(_tasks: Task[], _id: number, _editButton:HTMLButton
             clicked = false
             _editButton.innerText = 'Edit'
             input.value = ""
+            populateUI(_ul, _tasks)
         }
     }
 }

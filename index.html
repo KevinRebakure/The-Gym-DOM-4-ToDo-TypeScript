@@ -14,10 +14,10 @@
   <body>
     <div
       id="page"
-      class="rounded-lg mx-auto w-1/2 space-y-5 bg-[url('./assets/office.jpg')] bg-contain bg-fixed bg-center p-10"
+      class="mx-auto w-1/2 space-y-5 rounded-lg bg-[url('./assets/office.jpg')] bg-contain bg-fixed bg-center p-10"
     >
       <div class="flex items-center justify-between">
-        <h1 class="text-3xl text-white font-bold">ToDo</h1>
+        <h1 class="text-3xl font-bold text-white">ToDo</h1>
         <form class="flex items-center" id="form" action="">
           <input
             class="rounded-bl-lg rounded-tl-lg border-none bg-gray-100 bg-opacity-50 px-5 py-2 outline-none backdrop-blur-md"
@@ -26,7 +26,7 @@
             id="input"
           />
           <input
-            class="rounded-br-lg rounded-tr-lg bg-white px-5 py-2 text-black hover:bg-gray-800 hover:text-white transition-all duration-100"
+            class="rounded-br-lg rounded-tr-lg bg-white px-5 py-2 text-black transition-all duration-100 hover:bg-gray-800 hover:text-white"
             type="submit"
             value="Create task"
           />
@@ -37,21 +37,15 @@
         class="space-y-3 rounded-lg bg-white bg-opacity-45 p-5 backdrop-blur-md"
         id="list"
       >
-        <li
-          id="1"
-          class="flex items-center gap-2 justify-start px-3 py-1"
-        >
-          <!-- <button
-            class="border bg-blue-500 px-3 py-1 text-white"
-            id="completed"
+        <!-- <li id="1" class="flex items-center justify-start gap-2 px-3 py-1">
+          <img src="./src/assets/pen.png" alt="" class="size-8" />
+          <span id="task" class="mr-auto w-full rounded-lg bg-white px-5 py-2"
+            >Learn to play guitar</span
           >
-            Edit
-          </button> -->
-          <img src="./src/assets/pen.png" alt="" class="size-8">
-          <span id="task" class="mr-auto bg-white py-2 px-5 w-full rounded-lg">Learn to play guitar</span>
-          <img src="./src/assets/check.png" class="size-8" alt="">
-          <img src="./src/assets/delete.png" class="size-8 opacity-70"  alt="">
-        </li>
+          <img src="./src/assets/check.png" class="size-8" alt="" />
+          <img src="./src/assets/delete.png" class="size-8 opacity-70" alt="" />
+        </li> -->
+        <img src="./src/assets/welcome.png" alt="" class="mx-auto">
       </ul>
     </div>
     <script type="module" src="/src/main.ts"></script>

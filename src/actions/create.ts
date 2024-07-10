@@ -13,7 +13,7 @@ export default function createTask(
       id: _id,
       task: _task,
       completed: _completed,
-      onedit: _onedit
+      onedit: _onedit,
     });
   }
 }

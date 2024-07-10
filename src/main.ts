@@ -6,17 +6,16 @@ const form = document.getElementById("form") as HTMLFormElement;
 export const input = document.getElementById("input") as HTMLInputElement;
 export const ul = document.getElementById("list") as HTMLUListElement;
 
-let count = 0
+let count = 0;
 
-form.addEventListener('submit', function(e:SubmitEvent){
-    e.preventDefault()
-    createTask(tasks, count, input.value, false, false)
-    populateUI(ul, tasks)
-    cleanUp()
-})
-
+form.addEventListener("submit", function (e: SubmitEvent) {
+  e.preventDefault();
+  createTask(tasks, count, input.value, false, false);
+  populateUI(ul, tasks);
+  cleanUp();
+});
 
 function cleanUp() {
-    count++
-    input.value = ''
+  count++;
+  input.value = "";
 }

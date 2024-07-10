@@ -14,16 +14,12 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     const span = document.createElement("span");
     span.innerText = task.task;
 
-    // const editButton = document.createElement("button");
     const editButton = document.createElement("img");
     editButton.src = "./src/assets/pen.png";
-    // editButton.className = "bg-green-500 px-3 py-1 text-white";
     editButton.className = "size-8";
     if (!task.onedit) {
-      //   editButton.innerText = "Edit";
       editButton.src = "./src/assets/pen.png";
     } else {
-      //   editButton.innerText = "Done";
       editButton.src = "./src/assets/onedit.png";
     }
     editButton.addEventListener("click", function () {
@@ -32,16 +28,12 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
       console.log(task);
     });
 
-    // const completeButton = document.createElement("button");
     const completeButton = document.createElement("img");
-    // completeButton.className = "bg-blue-500 px-3 py-1 text-white";
     completeButton.className = "size-8";
     if (!task.completed) {
-      // completeButton.innerText = "Check";
       completeButton.src = "./src/assets/check.png";
       span.className = "mr-auto bg-white py-2 px-5 w-full rounded-lg";
     } else {
-      // completeButton.innerText = "Completed";
       completeButton.src = "./src/assets/uncheck.png";
       span.className =
         "mr-auto bg-white py-2 px-5 w-full rounded-lg line-through";
@@ -51,11 +43,8 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
       populateUI(_ul, _tasks);
     });
 
-    // const deleteButton = document.createElement("button");
     const deleteButton = document.createElement("img");
-    // deleteButton.className = "bg-red-500 px-3 py-1 text-white";
-    deleteButton.className = 'size-8 opacity-70'
-    // deleteButton.innerText = "Delete";
+    deleteButton.className = "size-8 opacity-70";
     deleteButton.src = "./src/assets/delete.png";
     deleteButton.addEventListener("click", function () {
       remove(_tasks, task.id), populateUI(_ul, _tasks);

@@ -13,14 +13,14 @@ export default function edit(
   if (!clicked) {
     _tasks[index].onedit = true;
     input.value = _tasks[index].task;
-    _editButton.src = "./src/assets/onedit.png";
+    _editButton.src = "./assets/onedit.png";
     clicked = true;
   } else {
     if (input.value !== "" && clicked) {
       _tasks[index].onedit = false;
       _tasks[index].task = input.value;
       clicked = false;
-      _editButton.src = "./src/assets/pen.png";
+      _editButton.src = "./assets/pen.png";
       input.value = "";
       populateUI(_ul, _tasks);
     }

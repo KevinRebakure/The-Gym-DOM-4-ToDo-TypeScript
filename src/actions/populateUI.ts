@@ -15,12 +15,12 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     span.innerText = task.task;
 
     const editButton = document.createElement("img");
-    editButton.src = "./src/assets/pen.png";
+    editButton.src = "./assets/pen.png";
     editButton.className = "size-8";
     if (!task.onedit) {
-      editButton.src = "./src/assets/pen.png";
+      editButton.src = "./assets/pen.png";
     } else {
-      editButton.src = "./src/assets/onedit.png";
+      editButton.src = "./assets/onedit.png";
     }
     editButton.addEventListener("click", function () {
       edit(ul, _tasks, task.id, editButton);
@@ -31,10 +31,10 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     const completeButton = document.createElement("img");
     completeButton.className = "size-8";
     if (!task.completed) {
-      completeButton.src = "./src/assets/check.png";
+      completeButton.src = "./assets/check.png";
       span.className = "mr-auto bg-white py-2 px-5 w-full rounded-lg";
     } else {
-      completeButton.src = "./src/assets/uncheck.png";
+      completeButton.src = "./assets/uncheck.png";
       span.className =
         "mr-auto bg-white py-2 px-5 w-full rounded-lg line-through";
     }
@@ -45,7 +45,7 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
 
     const deleteButton = document.createElement("img");
     deleteButton.className = "size-8 opacity-70";
-    deleteButton.src = "./src/assets/delete.png";
+    deleteButton.src = "./assets/delete.png";
     deleteButton.addEventListener("click", function () {
       remove(_tasks, task.id), populateUI(_ul, _tasks);
     });

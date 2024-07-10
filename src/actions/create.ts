@@ -7,7 +7,6 @@ export default function createTask(
   _task: string,
   _completed: boolean,
   _onedit: boolean,
-  _onhover: boolean
 ) {
   if (input.value !== "") {
     _tasks.unshift({

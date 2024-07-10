@@ -10,19 +10,6 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     const li = document.createElement("li");
     li.id = task.id.toString();
     li.className = "flex items-center gap-2 justify-start px-3 py-1";
-        li.addEventListener("mouseenter", function () {
-          task.onhover = true;
-          editButton.classList.remove("hidden");
-          deleteButton.classList.remove("hidden");
-        });
-
-        li.addEventListener("mouseleave", function () {
-          task.onhover = false;
-          editButton.classList.add("hidden");
-          deleteButton.classList.add("hidden");
-        });
-
-
 
     const span = document.createElement("span");
     span.innerText = task.task;
@@ -31,17 +18,14 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     const editButton = document.createElement("img");
     editButton.src = "./src/assets/pen.png";
     // editButton.className = "bg-green-500 px-3 py-1 text-white";
-    // editButton.className = "size-8";
-    editButton.className = task.onhover
-      ? "transition-all duration-100 size-8 opacity-70 block"
-      : "transition-all duration-100 size-8 opacity-70 hidden";
-    // if (!task.onedit) {
-    //   //   editButton.innerText = "Edit";
-    //   editButton.src = "./src/assets/pen.png";
-    // } else {
-    //   //   editButton.innerText = "Done";
-    //   editButton.src = "./src/assets/onedit.png";
-    // }
+    editButton.className = "size-8";
+    if (!task.onedit) {
+      //   editButton.innerText = "Edit";
+      editButton.src = "./src/assets/pen.png";
+    } else {
+      //   editButton.innerText = "Done";
+      editButton.src = "./src/assets/onedit.png";
+    }
     editButton.addEventListener("click", function () {
       edit(ul, _tasks, task.id, editButton);
       console.log(editButton);
@@ -70,10 +54,7 @@ export default function populateUI(_ul: HTMLUListElement, _tasks: Task[]) {
     // const deleteButton = document.createElement("button");
     const deleteButton = document.createElement("img");
     // deleteButton.className = "bg-red-500 px-3 py-1 text-white";
-    // deleteButton.className = 'size-8 opacity-70'
-    deleteButton.className = task.onhover
-      ? "transition-all duration-100 size-8 opacity-70 block"
-      : "transition-all duration-100 size-8 opacity-70 hidden";
+    deleteButton.className = 'size-8 opacity-70'
     // deleteButton.innerText = "Delete";
     deleteButton.src = "./src/assets/delete.png";
     deleteButton.addEventListener("click", function () {

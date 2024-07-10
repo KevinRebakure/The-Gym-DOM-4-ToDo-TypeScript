@@ -23,6 +23,8 @@ export default function populateUI(_ul:HTMLUListElement, _tasks:Task[]) {
         }
         editButton.addEventListener('click', function(){
             edit(ul, _tasks, task.id, editButton)
+            console.log(editButton)
+            console.log(task)
         })
 
         const completeButton = document.createElement("button");

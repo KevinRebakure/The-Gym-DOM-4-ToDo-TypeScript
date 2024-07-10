@@ -21,3 +21,9 @@ export default function edit(_ul:HTMLUListElement, _tasks: Task[], _id: number, 
         }
     }
 }
+
+/*
+    Attention here. "clicked" is a global variable which all tasks will depend on. As a 
+    consequence, you can only edit one task at a time. To swap it so you can edit multiple
+    tasks at a time, you can use "_tasks[index].onedit" instead. 
+*/

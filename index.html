@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-   <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -12,38 +12,46 @@
     <title>ToDo</title>
   </head>
   <body>
-    <div id="page" class="mx-auto w-1/2 space-y-5">
-      <h1 class="text-3xl text-green-500">ToDo</h1>
-      <form class="flex items-center" id="form" action="">
-        <input
-          class="border-none bg-gray-100 px-3 py-1 outline-none"
-          type="text"
-          name=""
-          id="input"
-        />
-        <input
-          class="bg-green-500 px-3 py-1 text-white"
-          type="submit"
-          value="Create task"
-        />
-      </form>
+    <div
+      id="page"
+      class="rounded-lg mx-auto w-1/2 space-y-5 bg-[url('./assets/office.jpg')] bg-contain bg-fixed bg-center p-10"
+    >
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl text-white font-bold">ToDo</h1>
+        <form class="flex items-center" id="form" action="">
+          <input
+            class="rounded-bl-lg rounded-tl-lg border-none bg-gray-100 bg-opacity-50 px-5 py-2 outline-none backdrop-blur-md"
+            type="text"
+            name=""
+            id="input"
+          />
+          <input
+            class="rounded-br-lg rounded-tr-lg bg-white px-5 py-2 text-black hover:bg-gray-800 hover:text-white transition-all duration-100"
+            type="submit"
+            value="Create task"
+          />
+        </form>
+      </div>
 
-      <ul class="space-y-3" id="list">
-        <!-- <li
+      <ul
+        class="space-y-3 rounded-lg bg-white bg-opacity-45 p-5 backdrop-blur-md"
+        id="list"
+      >
+        <li
           id="1"
-          class="flex items-center justify-end bg-yellow-100 px-3 py-1"
+          class="flex items-center gap-2 justify-start px-3 py-1"
         >
-          <span id="task" class="mr-auto">Learn to play guitar</span>
-          <button class="border bg-red-500 px-3 py-1 text-white" id="delete">
-            Delete
-          </button>
-          <button
+          <!-- <button
             class="border bg-blue-500 px-3 py-1 text-white"
             id="completed"
           >
-            Done
-          </button>
-        </li> -->
+            Edit
+          </button> -->
+          <img src="./src/assets/pen.png" alt="" class="size-8">
+          <span id="task" class="mr-auto bg-white py-2 px-5 w-full rounded-lg">Learn to play guitar</span>
+          <img src="./src/assets/check.png" class="size-8" alt="">
+          <img src="./src/assets/delete.png" class="size-8 opacity-70"  alt="">
+        </li>
       </ul>
     </div>
     <script type="module" src="/src/main.ts"></script>
